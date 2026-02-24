@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash IPTV | The Future of Television</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --surface-color: #141414;
+            --primary-color: #E50914;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo img {
+            height: 40px;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 30%, rgba(229, 9, 20, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content { max-width: 600px; }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .btn i { margin-right: 10px; font-size: 20px; }
+
+        /* Features */
+        .features {
+            padding: 100px 10%;
+            background-color: var(--surface-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary-color);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background-color: var(--bg-color);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+        
+        footer a:hover { color: white; }
+        footer p { margin-top: 20px; color: #555; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* Lehet tenni hamburgerté mobilra */
+            .hero { padding-top: 100px; text-align: center; }
+            .hero-content { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="icon-2.png" alt="Flash IPTV Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Future of TV in Your Hands.</h1>
+            <p>Experience lightning-fast streaming, multiple profiles, and a premium 4K cinematic UI. Built for the modern streamer.</p>
+            <a href="#download" class="btn"><i class="fab fa-apple"></i> Download on App Store</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">Why Flash IPTV?</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Powered by our advanced hardware-accelerated engine. Zero buffering, instant playback.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Multiple Profiles</h3>
+                <p>One app, personalized for everyone. Separate histories, favorites, and parental controls.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tv"></i>
+                <h3>Cast & AirPlay</h3>
+                <p>Watch your favorite content on the big screen with native Chromecast and Apple AirPlay support.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Concurrency Shield</h3>
+                <p>Smart connection monitoring keeps you safe from provider bans. We protect your account.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <a href="mailto:support@flashiptv.com">Contact Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; 2024 Flash IPTV. All rights reserved. Flash IPTV is a media player and does not provide any content.</p>
+    </footer>
+
+</body>
+</html>
