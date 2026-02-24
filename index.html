@@ -17,6 +17,8 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
@@ -39,9 +41,11 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
+        /* Updated Logo Style */
         .logo img {
             height: 40px;
-            filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+            /* A glitch hatás miatt egy kis extra fényt adunk neki */
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
         }
 
         .nav-links a {
@@ -55,31 +59,74 @@
 
         .nav-links a:hover { color: var(--primary-color); }
 
-        /* Hero Section */
+        /* Hero Section - Updated Layout */
         .hero {
-            height: 100vh;
+            min-height: 100vh; /* Teljes képernyő magasság */
             display: flex;
             align-items: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at 80% 30%, rgba(229, 9, 20, 0.15) 0%, transparent 50%);
+            padding: 100px 10% 0; /* Felső padding a navbar miatt */
+            /* Finomított háttér gradiens */
+            background: radial-gradient(circle at 70% 40%, rgba(229, 9, 20, 0.1) 0%, transparent 60%);
         }
 
-        .hero-content { max-width: 600px; }
+        /* Konténer a kétoszlopos elrendezéshez */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 550px;
+            padding-right: 40px;
+            z-index: 2;
+        }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #aaa);
+            /* Modern text gradient */
+            background: linear-gradient(to right bottom, #ffffff, #aaaaaa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 40px;
+        }
+
+        /* Új stílus a jobb oldali képnek */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 80vh; /* Ne legyen magasabb a képernyőnél */
+            /* Árnyék a mélységérzetért */
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+            
+            /* Opcionális: egy nagyon finom lebegő animáció */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
         .btn {
@@ -92,7 +139,7 @@
             border-radius: 8px;
             font-weight: 700;
             font-size: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
             border: none;
             cursor: pointer;
         }
@@ -100,25 +147,29 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4);
+            background-color: #ff1f2d;
         }
 
-        .btn i { margin-right: 10px; font-size: 20px; }
+        .btn i { margin-right: 10px; font-size: 22px; }
 
-        /* Features */
+        /* Features Section */
         .features {
             padding: 100px 10%;
             background-color: var(--surface-color);
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 60px;
+            font-weight: 700;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
@@ -126,32 +177,37 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px 30px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s, background 0.3s;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.06);
             border-color: var(--primary-color);
+            box-shadow: 0 10px 30px -10px rgba(229, 9, 20, 0.3);
         }
 
         .card i {
             font-size: 40px;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 15px; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 50px 20px;
             background-color: var(--bg-color);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer .footer-links {
+            margin-bottom: 20px;
         }
 
         footer a {
@@ -159,17 +215,47 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 14px;
+            transition: color 0.3s;
         }
         
-        footer a:hover { color: white; }
+        footer a:hover { color: var(--primary-color); }
         footer p { margin-top: 20px; color: #555; font-size: 12px; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+        /* Responsive Design Updated */
+        @media (max-width: 968px) {
             nav { padding: 20px; }
-            .nav-links { display: none; } /* Lehet tenni hamburgerté mobilra */
-            .hero { padding-top: 100px; text-align: center; }
-            .hero-content { margin: 0 auto; }
+            .nav-links { display: none; } /* Mobilon elrejtjük a menüt */
+            
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 60px;
+                height: auto;
+                min-height: auto;
+            }
+
+            /* Mobilon egymás alá kerülnek */
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 { font-size: 2.5rem; }
+            
+            .hero-image img {
+                max-height: 50vh; /* Kisebb kép mobilon */
+                max-width: 80%;
+            }
+
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -177,7 +263,7 @@
 
     <nav>
         <div class="logo">
-            <img src="icon-2.png" alt="Flash IPTV Logo">
+            <img src="https://i.ibb.co/5hPJQRQt/icon-2.png" alt="Flash IPTV Logo">
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
@@ -187,10 +273,16 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>The Future of TV in Your Hands.</h1>
-            <p>Experience lightning-fast streaming, multiple profiles, and a premium 4K cinematic UI. Built for the modern streamer.</p>
-            <a href="#download" class="btn"><i class="fab fa-apple"></i> Download on App Store</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>The Future of TV in Your Hands.</h1>
+                <p>Experience lightning-fast streaming, multiple profiles, and a premium 4K cinematic UI. Built for the modern streamer.</p>
+                <a href="#download" class="btn"><i class="fab fa-apple"></i> Download on App Store</a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://i.ibb.co/bRMWbqCb/iphone1.png" alt="Flash IPTV App Screenshot on iPhone">
+            </div>
         </div>
     </section>
 
@@ -221,12 +313,12 @@
     </section>
 
     <footer>
-        <div>
+        <div class="footer-links">
             <a href="mailto:support@flashiptv.com">Contact Support</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="#">Terms of Service</a>
         </div>
-        <p>&copy; 2024 Flash IPTV. All rights reserved. Flash IPTV is a media player and does not provide any content.</p>
+        <p>&copy; 2026 Flash IPTV. All rights reserved. Flash IPTV is a media player and does not provide any content.</p>
     </footer>
 
 </body>
